@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Kredit; // Pastikan import model Kredit
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -12,16 +13,29 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Membuat 10 data user dummy otomatis menggunakan factory baru
+        // 1. Membuat 10 data user dummy
         User::factory(10)->create();
 
-        // Membuat 1 akun admin utama khusus untuk Anda login testing
+        // 2. Membuat 1 akun admin utama
         User::factory()->create([
             'nama' => 'Admin1',
             'username' => 'Admin4',
             'jabatan' => 'Admin',
             'alamat' => 'Subang',
             'password' => bcrypt('Admin4'),
+        ]);
+
+        // 3. Membuat 10 data dummy untuk tabel kredit
+        Kredit::factory(10)->create();
+
+        // 4. Membuat data spesifik untuk tabel kredit
+        Kredit::factory()->create([
+            'nama' => 'Listrik',
+            'tanggal' => '2026-05-19',
+            'jenis_pengeluaran' => 'tetap',
+            'saldo_kredit' => 9000000,
+            'keterangan' => 'Listrik Habis bulan ini',
+            'status' => 'setuju',
         ]);
     }
 }
