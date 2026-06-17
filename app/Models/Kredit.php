@@ -3,15 +3,16 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory; // Tambahkan baris ini
 use App\Models\Gaji;
 
 class Kredit extends Model
 {
-    use HasFactory;
-    protected $table = 'kredit'; // Nama tabel di database
-    protected $primaryKey = 'id_kredit'; // Primary key
+    use HasFactory; 
+    
+    protected $table = 'kredit'; 
+    protected $primaryKey = 'id_kredit';
 
-    // Kolom yang dapat diisi secara massal
     protected $fillable = [
         'nama',
         'tanggal',
@@ -23,7 +24,6 @@ class Kredit extends Model
     ];
 
     public function gaji() {
-    return $this->belongsTo(Gaji::class, 'id_gaji', 'id_gaji');
+        return $this->belongsTo(Gaji::class, 'id_gaji', 'id_gaji');
     }
-   
 }
