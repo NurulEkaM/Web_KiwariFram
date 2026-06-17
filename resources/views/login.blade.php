@@ -127,6 +127,7 @@
             eyeIcon.classList.toggle('fa-eye');
             eyeIcon.classList.toggle('fa-eye-slash');
         });
+        
     </script>
 </body>
 </html>
