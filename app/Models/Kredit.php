@@ -7,6 +7,7 @@ use App\Models\Gaji;
 
 class Kredit extends Model
 {
+    use HasFactory;
     protected $table = 'kredit'; // Nama tabel di database
     protected $primaryKey = 'id_kredit'; // Primary key
 
